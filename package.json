@@ -1,0 +1,62 @@
+{
+  "name": "@gongshiyun/dsh-theme-claude-desktop",
+  "version": "1.0.0",
+  "description": "Claude Desktop 风格主题：暖砂画布 + 赤陶主色的浅色/深色双变体，含 Anthropic Sans/Serif/Mono 字体排印层",
+  "license": "MIT",
+  "author": "gongshiyun",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gongshiyun/dsh-theme-claude-desktop.git"
+  },
+  "homepage": "https://github.com/gongshiyun/dsh-theme-claude-desktop#readme",
+  "bugs": {
+    "url": "https://github.com/gongshiyun/dsh-theme-claude-desktop/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.5-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "theme",
+    "claude",
+    "claude-desktop",
+    "anthropic"
+  ],
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "docs"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2"
+  }
+}

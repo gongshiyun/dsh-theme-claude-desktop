@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Claude Desktop 主题预览 · @gongshiyun/dsh-theme-claude-desktop</title>
+<style>
+  /* 明色 token 层 = 页面默认（等价于 DSH 把明色取值写在 body 行内变量上） */
+  body {
+  --dsw-font-family: "Anthropic Sans Text", "Anthropic Sans", "Styrene B", "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+  --ds-font-family-code: "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace;
+  --dsw-font-markdown-h1: 700 calc(21px + var(--dsh-content-font-delta)) / calc(30px + var(--dsh-content-font-delta)) "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h1-font-family: "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h2: 700 calc(19px + var(--dsh-content-font-delta)) / calc(28px + var(--dsh-content-font-delta)) "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h2-font-family: "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h3: 700 calc(18px + var(--dsh-content-font-delta)) / calc(26px + var(--dsh-content-font-delta)) "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h3-font-family: "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --shiki-foreground: #3A2E24;
+  --shiki-background: #F8F1E6;
+  --shiki-token-constant: #785B91;
+  --shiki-token-string: #4A7350;
+  --shiki-token-comment: #7B6954;
+  --shiki-token-keyword: #9B452C;
+  --shiki-token-parameter: #8F5F1A;
+  --shiki-token-function: #3B6A89;
+  --shiki-token-string-expression: #4A7350;
+  --shiki-token-punctuation: #8B7A6A;
+  --shiki-token-link: #3B6A89;
+  --dsw-alias-bg-base: #FFFAF2;
+  --dsw-alias-bg-layer-1: #FFFDF9;
+  --dsw-alias-bg-layer-2: #FFFDF9;
+  --dsw-alias-bg-layer-3: #FFFDF9;
+  --dsw-alias-bg-overlay: #F1E7D8;
+  --dsw-alias-bg-module-platform: #F1E7D8;
+  --dsw-alias-bg-multi-select: #F3EBDD;
+  --dsw-alias-bg-skeleton: #56412B14;
+  --dsw-alias-bg-mask-1: #2A20183D;
+  --dsw-alias-bg-mask-2: #2A20181F;
+  --dsw-alias-bg-mask-3: #2A20187A;
+  --dsw-alias-bg-mask-photo: #2A2018E0;
+  --dsw-alias-bg-mask-drop: #FFFAF2B3;
+  --dsw-alias-border-l1: #56412B12;
+  --dsw-alias-border-l2: #56412B26;
+  --dsw-alias-border-l2-darkmode-thin: #56412B26;
+  --dsw-alias-border-l3: #56412B2E;
+  --dsw-alias-border-l4: #56412B3D;
+  --dsw-alias-border-inverted: #00000000;
+  --dsw-alias-border-inverted2: #00000000;
+  --dsw-alias-brand-primary: #B85430;
+  --dsw-alias-brand-primary-invert: #3A2E24;
+  --dsw-alias-brand-primary-new-colorprimary-new-color: #B85430;
+  --dsw-alias-brand-text: #2A2018;
+  --dsw-alias-button-primary-fill: #B85430;
+  --dsw-alias-button-primary-hover: #AA4C2B;
+  --dsw-alias-button-primary-dimmed: #E3C8B6;
+  --dsw-alias-button-contrast-fill: #3A2E24;
+  --dsw-alias-button-elevated-fill: #FFFDF9;
+  --dsw-alias-button-floating-fill: #FFFDF9;
+  --dsw-alias-button-floating-hover: #F1E7D8;
+  --dsw-alias-button-ghost-active-fill: #F1E7D8;
+  --dsw-alias-button-ghost-active-hover: #EBDFCC;
+  --dsw-alias-button-ghost-active-border: #C4B29B;
+  --dsw-alias-button-info-fill: #B85430;
+  --dsw-alias-button-info-hover: #AA4C2B;
+  --dsw-alias-button-tool-bar-fill: #6B5A4780;
+  --dsw-alias-button-tool-bar-hover: #6B5A4799;
+  --dsw-alias-button-tool-bar-fill-invisible: #3A2E245C;
+  --dsw-alias-interactive-bg-hover: #56412B14;
+  --dsw-alias-interactive-bg-hover-solid: #F1E7D8;
+  --dsw-alias-interactive-bg-active: #56412B1F;
+  --dsw-alias-interactive-bg-hover-accent: #B8543024;
+  --dsw-alias-interactive-bg-hover-danger: #A9463614;
+  --dsw-alias-label-primary: #3A2E24;
+  --dsw-alias-label-primary-dimmed: #2A2018;
+  --dsw-alias-label-primary-foreground: #FFFAF2;
+  --dsw-alias-label-primary-inverted: #FFFAF2;
+  --dsw-alias-label-primary-bluish: #8C4526;
+  --dsw-alias-label-secondary: #776450;
+  --dsw-alias-label-tertiary: #8B7A6A;
+  --dsw-alias-label-caption: #A08D77;
+  --dsw-alias-label-dimmed: #C9BCA9;
+  --dsw-alias-link: #3B6A89;
+  --dsw-alias-markdown-citation: #F1E7D8;
+  --dsw-alias-markdown-code-block: #F8F1E6;
+  --dsw-alias-markdown-code-block-banner: #F3EBDD;
+  --dsw-alias-markdown-code-segment-selected: #FFFDF9;
+  --dsw-alias-markdown-code-segment-unselected: #F1E7D8;
+  --dsw-alias-markdown-inline-code: #F8F1E6;
+  --dsw-alias-markdown-placeholder: #F3EBDD;
+  --dsw-alias-markdown-tag: #F1E7D8;
+  --dsw-alias-scrollbar-bg-l1: #DED2C0;
+  --dsw-alias-scrollbar-bg-l2: #D6C8B4;
+  --dsw-alias-scrollbar-hover-l1: #C4B29B;
+  --dsw-alias-scrollbar-hover-l2: #B8A48C;
+  --dsw-alias-state-error-primary: #A94636;
+  --dsw-alias-state-error-secondary: #C4675A;
+  --dsw-alias-state-success-primary: #4A7350;
+  --dsw-alias-state-success-secondary: #6A9170;
+  --dsw-alias-state-success-tertiary: #DEE9DE;
+  --dsw-alias-state-warn-primary: #96651C;
+  --dsw-alias-state-warn-secondary: #B98A3C;
+  --dsw-alias-state-warn-tertiary: #F6E8CF;
+  --dsw-alias-state-warn-label: #7A5314;
+  --dsw-alias-state-business-primary: #B85430;
+  --dsw-alias-state-business-tertiary: #F4E3D8;
+  --dsw-alias-toast-bg: #2A2018;
+  --dsw-alias-tooltip-bg: #33281F;
+  --dsw-specific-bubble: #F6E7D8;
+  --dsw-specific-bubble-highlight: #EFDCC4;
+  --dsw-specific-input-major: #FFFDF9;
+  --dsw-specific-login-input: #F8F1E6;
+  --dsw-specific-menu: #FFFDF9;
+  --dsw-specific-selector: #F1E7D8;
+  --dsw-specific-sidebar-fill: #F3EBDD;
+  --dsw-specific-sidebar-nav-item-active: #E9DEC9;
+  --dsw-specific-sidebar-nav-item-active-accent: #E1D2B8;
+  --dsw-specific-sidebar-nav-item-hover: #EDE3D2;
+  --dsw-specific-tip: #F6EEE1;
+  --dsw-static-neutral-50: #FBF7F0;
+  --dsw-static-neutral-100: #F4EDE2;
+  --dsw-static-neutral-200: #E6DCCB;
+  --dsw-static-neutral-700: #3A322A;
+  --dsw-static-neutral-800: #332C25;
+  --dsw-static-neutral-850: #2B251F;
+  --dsw-static-neutral-bluish-00: #FFFDF9;
+  --dsw-static-neutral-bluish-300: #D8CDBB;
+  --dsw-static-neutral-bluish-400: #A39684;
+  --dsw-static-deepseek-200: #E8C4B0;
+  --dsw-static-deepseek-450: #D97757;
+  --dsw-static-deepseek-500: #C4623C;
+  --dsw-static-blue-450: #5E8AA6;
+  --dsw-static-blue-500: #3B6A89;
+  --dsw-static-green-500: #5E8A66;
+  --dsw-static-red-600: #B04B3A;
+  --dsw-static-amber-400: #D9A24A;
+  --dsw-static-amber-500: #C08A2E;
+  --dsw-linear-gradient-think: linear-gradient(180deg, #FFFAF2 20.19%, #FFFAF200 100%);
+  --dsw-linear-think-select: linear-gradient(180deg, #F6EEE1 20.19%, #F6EEE100 100%);
+  --dsw-shadow-lv1: 0 2px 4px 0 #3A2E240D;
+  --dsw-shadow-lv1-blur: 0 4px 12px 0 #3A2E2405;
+  --dsw-shadow-lv2: 0 4px 12px 0 #3A2E2405, 0 2px 8px 0 #3A2E240A;
+  --dsw-shadow-lv3: 0 0 1px 0 #3A2E2433, 0 0 4px 0 #3A2E2405, 0 12px 32px 0 #3A2E2414;
+  }
+  /* 暗色 token 层 = 任意 .darkScope 子树（等价于 DSH 切到深色时的取值） */
+  .darkScope, .scheme[data-scheme="dark"] {
+  --dsw-font-family: "Anthropic Sans Text", "Anthropic Sans", "Styrene B", "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+  --ds-font-family-code: "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace;
+  --dsw-font-markdown-h1: 700 calc(21px + var(--dsh-content-font-delta)) / calc(30px + var(--dsh-content-font-delta)) "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h1-font-family: "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h2: 700 calc(19px + var(--dsh-content-font-delta)) / calc(28px + var(--dsh-content-font-delta)) "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h2-font-family: "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h3: 700 calc(18px + var(--dsh-content-font-delta)) / calc(26px + var(--dsh-content-font-delta)) "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h3-font-family: "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --shiki-foreground: #E2D9CC;
+  --shiki-background: #201B17;
+  --shiki-token-constant: #BAA0D4;
+  --shiki-token-string: #A6C896;
+  --shiki-token-comment: #938573;
+  --shiki-token-keyword: #E39371;
+  --shiki-token-parameter: #E3BC72;
+  --shiki-token-function: #95BFD0;
+  --shiki-token-string-expression: #A6C896;
+  --shiki-token-punctuation: #A39684;
+  --shiki-token-link: #95BFD0;
+  --dsw-alias-bg-base: #26221E;
+  --dsw-alias-bg-layer-1: #2E2721;
+  --dsw-alias-bg-layer-2: #332C25;
+  --dsw-alias-bg-layer-3: #39312A;
+  --dsw-alias-bg-overlay: #3A3128;
+  --dsw-alias-bg-module-platform: #3A3128;
+  --dsw-alias-bg-multi-select: #332C25;
+  --dsw-alias-bg-skeleton: #FFFFFF14;
+  --dsw-alias-bg-mask-1: #120E0B80;
+  --dsw-alias-bg-mask-2: #120E0B03;
+  --dsw-alias-bg-mask-3: #120E0B7A;
+  --dsw-alias-bg-mask-photo: #120E0BE0;
+  --dsw-alias-bg-mask-drop: #1E1A16B3;
+  --dsw-alias-border-l1: #EBE1D21A;
+  --dsw-alias-border-l2: #EBE1D22E;
+  --dsw-alias-border-l2-darkmode-thin: #EBE1D22E;
+  --dsw-alias-border-l3: #EBE1D23D;
+  --dsw-alias-border-l4: #EBE1D24D;
+  --dsw-alias-border-inverted: #FFFFFF14;
+  --dsw-alias-border-inverted2: #FFFFFF14;
+  --dsw-alias-brand-primary: #DF805B;
+  --dsw-alias-brand-primary-invert: #E2D9CC;
+  --dsw-alias-brand-primary-new-colorprimary-new-color: #DF805B;
+  --dsw-alias-brand-text: #F0E7DA;
+  --dsw-alias-button-primary-fill: #DF805B;
+  --dsw-alias-button-primary-hover: #E8916D;
+  --dsw-alias-button-primary-dimmed: #5A3A2C;
+  --dsw-alias-button-contrast-fill: #E2D9CC;
+  --dsw-alias-button-elevated-fill: #2E2721;
+  --dsw-alias-button-floating-fill: #2E2721;
+  --dsw-alias-button-floating-hover: #332C25;
+  --dsw-alias-button-ghost-active-fill: #332C25;
+  --dsw-alias-button-ghost-active-hover: #3D342B;
+  --dsw-alias-button-ghost-active-border: #5E5449;
+  --dsw-alias-button-info-fill: #DF805B;
+  --dsw-alias-button-info-hover: #E8916D;
+  --dsw-alias-button-tool-bar-fill: #6B5A4780;
+  --dsw-alias-button-tool-bar-hover: #6B5A4799;
+  --dsw-alias-button-tool-bar-fill-invisible: #3A2E245C;
+  --dsw-alias-interactive-bg-hover: #EBE1D214;
+  --dsw-alias-interactive-bg-hover-solid: #332C25;
+  --dsw-alias-interactive-bg-active: #EBE1D224;
+  --dsw-alias-interactive-bg-hover-accent: #DF805B24;
+  --dsw-alias-interactive-bg-hover-danger: #E4827026;
+  --dsw-alias-label-primary: #E2D9CC;
+  --dsw-alias-label-primary-dimmed: #F0E7DA;
+  --dsw-alias-label-primary-foreground: #26150E;
+  --dsw-alias-label-primary-inverted: #26150E;
+  --dsw-alias-label-primary-bluish: #F0C4AC;
+  --dsw-alias-label-secondary: #A39684;
+  --dsw-alias-label-tertiary: #938573;
+  --dsw-alias-label-caption: #8A7B6B;
+  --dsw-alias-label-dimmed: #5A5049;
+  --dsw-alias-link: #95BFD0;
+  --dsw-alias-markdown-citation: #2A241E;
+  --dsw-alias-markdown-code-block: #201B17;
+  --dsw-alias-markdown-code-block-banner: #2A241E;
+  --dsw-alias-markdown-code-segment-selected: #332C25;
+  --dsw-alias-markdown-code-segment-unselected: #201B17;
+  --dsw-alias-markdown-inline-code: #201B17;
+  --dsw-alias-markdown-placeholder: #2A241E;
+  --dsw-alias-markdown-tag: #2A241E;
+  --dsw-alias-scrollbar-bg-l1: #4A4239;
+  --dsw-alias-scrollbar-bg-l2: #544B41;
+  --dsw-alias-scrollbar-hover-l1: #5E5449;
+  --dsw-alias-scrollbar-hover-l2: #6A5F53;
+  --dsw-alias-state-error-primary: #E48270;
+  --dsw-alias-state-error-secondary: #C96A59;
+  --dsw-alias-state-success-primary: #A6C896;
+  --dsw-alias-state-success-secondary: #8FB07F;
+  --dsw-alias-state-success-tertiary: #2C3A2A;
+  --dsw-alias-state-warn-primary: #E3BC72;
+  --dsw-alias-state-warn-secondary: #C9A45E;
+  --dsw-alias-state-warn-tertiary: #3C3222;
+  --dsw-alias-state-warn-label: #E3BC72;
+  --dsw-alias-state-business-primary: #DF805B;
+  --dsw-alias-state-business-tertiary: #3A2A22;
+  --dsw-alias-toast-bg: #332C25;
+  --dsw-alias-tooltip-bg: #332C25;
+  --dsw-specific-bubble: #332B24;
+  --dsw-specific-bubble-highlight: #3D342B;
+  --dsw-specific-input-major: #2E2721;
+  --dsw-specific-login-input: #201B17;
+  --dsw-specific-menu: #332C25;
+  --dsw-specific-selector: #332C25;
+  --dsw-specific-sidebar-fill: #1E1A16;
+  --dsw-specific-sidebar-nav-item-active: #332B23;
+  --dsw-specific-sidebar-nav-item-active-accent: #3A3128;
+  --dsw-specific-sidebar-nav-item-hover: #2A241E;
+  --dsw-specific-tip: #2A241E;
+  --dsw-static-neutral-50: #FBF7F0;
+  --dsw-static-neutral-100: #F4EDE2;
+  --dsw-static-neutral-200: #E6DCCB;
+  --dsw-static-neutral-700: #3A322A;
+  --dsw-static-neutral-800: #332C25;
+  --dsw-static-neutral-850: #2B251F;
+  --dsw-static-neutral-bluish-00: #FFFDF9;
+  --dsw-static-neutral-bluish-300: #D8CDBB;
+  --dsw-static-neutral-bluish-400: #A39684;
+  --dsw-static-deepseek-200: #E8C4B0;
+  --dsw-static-deepseek-450: #D97757;
+  --dsw-static-deepseek-500: #C4623C;
+  --dsw-static-blue-450: #5E8AA6;
+  --dsw-static-blue-500: #3B6A89;
+  --dsw-static-green-500: #5E8A66;
+  --dsw-static-red-600: #B04B3A;
+  --dsw-static-amber-400: #D9A24A;
+  --dsw-static-amber-500: #C08A2E;
+  --dsw-linear-gradient-think: linear-gradient(180deg, #26221E 20.19%, #26221E00 100%);
+  --dsw-linear-think-select: linear-gradient(180deg, #2A241E 20.19%, #2A241E00 100%);
+  --dsw-shadow-lv1: 0 2px 4px 0 #0000002E;
+  --dsw-shadow-lv1-blur: 0 4px 12px 0 #0000001F;
+  --dsw-shadow-lv2: 0 4px 12px 0 #00000024, 0 2px 8px 0 #00000029;
+  --dsw-shadow-lv3: 0 0 1px 0 #00000059, 0 0 4px 0 #0000001F, 0 12px 32px 0 #0000003D;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: #121212; }
+  body { margin: 0; padding: 0; background: #121212; color: #c9c9c9; font: 14px/22px "Anthropic Sans Text", "Anthropic Sans", "Styrene B", "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 34px 24px 64px; }
+  .pageTitle { font: 700 27px/38px "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif; margin: 0 0 6px; color: #f2f2f2; }
+  .pageNote { color: #8b8b8b; margin: 0 0 30px; }
+
+  .scheme { border-radius: 18px; overflow: hidden; margin: 0 0 30px; background: var(--dsw-alias-bg-base);
+    color: var(--dsw-alias-label-primary); box-shadow: 0 0 0 1px #ffffff14; }
+  .schemeHead { display: flex; align-items: baseline; gap: 12px; padding: 16px 26px;
+    background: var(--dsw-specific-sidebar-fill); border-bottom: .5px solid var(--dsw-alias-border-l2); }
+  .schemeHead h2 { margin: 0; font: 700 18px/26px "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif; }
+  .schemeHead code { color: var(--dsw-alias-label-tertiary); font: 12px/18px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; }
+
+  .typography { padding: 26px 26px 6px; }
+  .typography h1 { font: 700 21px/30px "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif; margin: 0 0 16px; }
+  .typography h2 { font: 700 19px/28px "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif; margin: 0 0 16px; }
+  .typography h3 { font: 700 18px/26px "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif; margin: 0 0 16px; }
+  .typography p { margin: 0 0 14px; }
+  .typography blockquote { margin: 0 0 14px; padding: 6px 14px; border-left: 3px solid var(--dsw-alias-brand-primary);
+    color: var(--dsw-alias-label-secondary); background: var(--dsw-alias-markdown-citation); border-radius: 0 8px 8px 0; }
+  .typography ul { margin: 0 0 14px 22px; padding: 0; }
+  .typography a { color: var(--dsw-alias-link); }
+  .typography code { font: 12px/19px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; padding: 1px 5px; border-radius: 5px;
+    background: var(--dsw-alias-markdown-inline-code); }
+  .typography del { color: var(--dsw-alias-label-caption); }
+
+  .code { margin: 10px 26px 0; padding: 14px 16px; border-radius: 12px; overflow: auto;
+    background: var(--dsw-alias-markdown-code-block); border: .5px solid var(--dsw-alias-border-l2); }
+  .code code { font: 12px/20px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; color: var(--shiki-foreground); }
+  .code i { font-style: normal; }
+  .t-keyword { color: var(--shiki-token-keyword); }
+  .t-string { color: var(--shiki-token-string); }
+  .t-comment { color: var(--shiki-token-comment); }
+  .t-function { color: var(--shiki-token-function); }
+  .t-constant { color: var(--shiki-token-constant); }
+
+  .chatDemo { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; padding: 24px 26px 26px; }
+  .bubble { max-width: 72%; padding: 10px 14px; border-radius: 16px; background: var(--dsw-specific-bubble); }
+  .composer { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 12px 14px; border-radius: 16px; background: var(--dsw-specific-input-major);
+    border: .5px solid var(--dsw-alias-border-l2); color: var(--dsw-alias-label-dimmed); }
+  .composer .send { width: 30px; height: 30px; border-radius: 50%; background: var(--dsw-alias-button-info-fill); }
+
+  .board { background: #1b1b1b; border-radius: 18px; padding: 22px 26px 10px; margin: 0 0 24px; }
+  .board > h2 { font: 700 19px/28px "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif; margin: 0 0 4px; color: #f0f0f0; }
+  .board > .lead { color: #8b8b8b; margin: 0 0 18px; font-size: 12px; }
+  .group { margin: 0 0 8px; }
+  .group h3 { font: 600 15px/22px "Anthropic Sans Text", "Anthropic Sans", "Styrene B", "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif; margin: 0 0 8px; color: #ededed; }
+  .group h3 .id { margin-left: 8px; font: 11px/16px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; color: #767676; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(126px, 1fr)); gap: 10px; margin: 0 0 12px; }
+  .darkScope.swatches { margin-bottom: 22px; }
+  .sw { margin: 0; height: 68px; border-radius: 10px; border: 1px solid #ffffff1f; position: relative;
+    overflow: hidden; background: #2a2a2a; }
+  .sw figcaption { position: absolute; inset: auto 0 0 0; padding: 4px 7px; background: #000000b8;
+    display: flex; flex-direction: column; gap: 1px; }
+  .sw .swName { font: 10px/13px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; color: #cfcfcf; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sw code { font: 10px/13px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; color: #8f8f8f; }
+  .shikiRow { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 22px; }
+  .shikiRow span { padding: 5px 11px; border-radius: 8px; background: #101010; border: 1px solid #ffffff1f;
+    font: 12px/18px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; }
+  .shikiRow span code { opacity: .55; margin-left: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="pageTitle">Claude Desktop 主题预览</h1>
+  <p class="pageNote">@gongshiyun/dsh-theme-claude-desktop · 共覆盖 133 个 token · 每块色板的第一行是浅色取值，第二行是深色取值</p>
+
+
+<article class="scheme" data-scheme="light">
+  <header class="schemeHead">
+    <h2>浅色 · 暖砂</h2><code>colorScheme: light</code>
+  </header>
+  <div class="typography">
+    <h1>Claude Desktop 主题 H1</h1>
+    <h2>暖砂与赤陶 H2</h2>
+    <h3>Anthropic Serif H3</h3>
+    <p>正文使用 Anthropic Sans 栈，中文回退到思源黑体 / 微软雅黑。字号与行高沿用 DSH 的内容字阶，
+      因此「设置 → 通用 → 内容字号」的 12–17px 调节依旧生效。行内代码 <code>--dsw-alias-bg-base</code>
+      使用等宽栈，代码块底色为暖砂。</p>
+    <blockquote>引用块：暖砂 / 暖炭底色 + 赤陶侧边线。</blockquote>
+    <ul><li>列表项一</li><li>列表项二</li></ul>
+    <p><a href="#">链接（muted blue）</a> · <strong>加粗</strong> · <em>斜体</em> · <del>删除线</del></p>
+  </div>
+  <pre class="code"><code><i class="t-comment">/** 主题覆盖层的注册入口。 */</i>
+<i class="t-keyword">export</i> <i class="t-keyword">function</i> <i class="t-function">apply</i>(<i class="t-function">ctx</i>) {
+  <i class="t-keyword">const</i> tokens = { <i class="t-string">'--dsw-alias-bg-base'</i>: { light: <i class="t-string">'#FFFAF2'</i>, dark: <i class="t-string">'#26221E'</i> } };
+  <i class="t-keyword">for</i> (<i class="t-keyword">const</i> [name, modes] <i class="t-keyword">of</i> <i class="t-function">Object</i>.<i class="t-function">entries</i>(tokens)) {
+    <i class="t-function">ctx</i>.theme.<i class="t-function">overrideTokens</i>(name, modes);   <i class="t-comment">// <i class="t-constant">133</i> 个 token</i>
+  }
+  <i class="t-keyword">return</i> <i class="t-keyword">true</i>;
+}</code></pre>
+  <div class="chatDemo">
+    <div class="bubble">用户气泡：暖砂填充，正文色文字。</div>
+    <div class="composer"><span>发消息或创建任务…</span><b class="send"></b></div>
+  </div>
+</article>
+
+<article class="scheme" data-scheme="dark">
+  <header class="schemeHead">
+    <h2>深色 · 暖炭</h2><code>colorScheme: dark</code>
+  </header>
+  <div class="typography">
+    <h1>Claude Desktop 主题 H1</h1>
+    <h2>暖砂与赤陶 H2</h2>
+    <h3>Anthropic Serif H3</h3>
+    <p>正文使用 Anthropic Sans 栈，中文回退到思源黑体 / 微软雅黑。字号与行高沿用 DSH 的内容字阶，
+      因此「设置 → 通用 → 内容字号」的 12–17px 调节依旧生效。行内代码 <code>--dsw-alias-bg-base</code>
+      使用等宽栈，代码块底色为暖砂。</p>
+    <blockquote>引用块：暖砂 / 暖炭底色 + 赤陶侧边线。</blockquote>
+    <ul><li>列表项一</li><li>列表项二</li></ul>
+    <p><a href="#">链接（muted blue）</a> · <strong>加粗</strong> · <em>斜体</em> · <del>删除线</del></p>
+  </div>
+  <pre class="code"><code><i class="t-comment">/** 主题覆盖层的注册入口。 */</i>
+<i class="t-keyword">export</i> <i class="t-keyword">function</i> <i class="t-function">apply</i>(<i class="t-function">ctx</i>) {
+  <i class="t-keyword">const</i> tokens = { <i class="t-string">'--dsw-alias-bg-base'</i>: { light: <i class="t-string">'#FFFAF2'</i>, dark: <i class="t-string">'#26221E'</i> } };
+  <i class="t-keyword">for</i> (<i class="t-keyword">const</i> [name, modes] <i class="t-keyword">of</i> <i class="t-function">Object</i>.<i class="t-function">entries</i>(tokens)) {
+    <i class="t-function">ctx</i>.theme.<i class="t-function">overrideTokens</i>(name, modes);   <i class="t-comment">// <i class="t-constant">133</i> 个 token</i>
+  }
+  <i class="t-keyword">return</i> <i class="t-keyword">true</i>;
+}</code></pre>
+  <div class="chatDemo">
+    <div class="bubble">用户气泡：暖砂填充，正文色文字。</div>
+    <div class="composer"><span>发消息或创建任务…</span><b class="send"></b></div>
+  </div>
+</article>
+
+  <div class="board">
+    <h2>token 色板</h2>
+    <p class="lead">每一组：上排 = 浅色（<code>light</code>），下排 = 深色（<code>dark</code>）</p>
+
+  <section class="group">
+    <h3>表面 / 画布 / 侧栏<span class="id">surfaces</span></h3>
+    <div class="swatches"><figure class="sw" style="background:#FFFAF2">
+        <figcaption><span class="swName">bg-base</span><code>#FFFAF2</code></figcaption>
+      </figure><figure class="sw" style="background:#FFFDF9">
+        <figcaption><span class="swName">bg-layer-1</span><code>#FFFDF9</code></figcaption>
+      </figure><figure class="sw" style="background:#FFFDF9">
+        <figcaption><span class="swName">bg-layer-2</span><code>#FFFDF9</code></figcaption>
+      </figure><figure class="sw" style="background:#FFFDF9">
+        <figcaption><span class="swName">bg-layer-3</span><code>#FFFDF9</code></figcaption>
+      </figure><figure class="sw" style="background:#F1E7D8">
+        <figcaption><span class="swName">bg-overlay</span><code>#F1E7D8</code></figcaption>
+      </figure><figure class="sw" style="background:#F3EBDD">
+        <figcaption><span class="swName">sidebar-fill</span><code>#F3EBDD</code></figcaption>
+      </figure><figure class="sw" style="background:#EDE3D2">
+        <figcaption><span class="swName">sidebar-nav-item-hover</span><code>#EDE3D2</code></figcaption>
+      </figure><figure class="sw" style="background:#E9DEC9">
+        <figcaption><span class="swName">sidebar-nav-item-active</span><code>#E9DEC9</code></figcaption>
+      </figure><figure class="sw" style="background:#E1D2B8">
+        <figcaption><span class="swName">sidebar-nav-item-active-accent</span><code>#E1D2B8</code></figcaption>
+      </figure><figure class="sw" style="background:#FFFDF9">
+        <figcaption><span class="swName">input-major</span><code>#FFFDF9</code></figcaption>
+      </figure><figure class="sw" style="background:#F6EEE1">
+        <figcaption><span class="swName">tip</span><code>#F6EEE1</code></figcaption>
+      </figure><figure class="sw" style="background:#FFFDF9">
+        <figcaption><span class="swName">menu</span><code>#FFFDF9</code></figcaption>
+      </figure></div>
+    <div class="swatches darkScope"><figure class="sw" style="background:#26221E">
+        <figcaption><span class="swName">bg-base</span><code>#26221E</code></figcaption>
+      </figure><figure class="sw" style="background:#2E2721">
+        <figcaption><span class="swName">bg-layer-1</span><code>#2E2721</code></figcaption>
+      </figure><figure class="sw" style="background:#332C25">
+        <figcaption><span class="swName">bg-layer-2</span><code>#332C25</code></figcaption>
+      </figure><figure class="sw" style="background:#39312A">
+        <figcaption><span class="swName">bg-layer-3</span><code>#39312A</code></figcaption>
+      </figure><figure class="sw" style="background:#3A3128">
+        <figcaption><span class="swName">bg-overlay</span><code>#3A3128</code></figcaption>
+      </figure><figure class="sw" style="background:#1E1A16">
+        <figcaption><span class="swName">sidebar-fill</span><code>#1E1A16</code></figcaption>
+      </figure><figure class="sw" style="background:#2A241E">
+        <figcaption><span class="swName">sidebar-nav-item-hover</span><code>#2A241E</code></figcaption>
+      </figure><figure class="sw" style="background:#332B23">
+        <figcaption><span class="swName">sidebar-nav-item-active</span><code>#332B23</code></figcaption>
+      </figure><figure class="sw" style="background:#3A3128">
+        <figcaption><span class="swName">sidebar-nav-item-active-accent</span><code>#3A3128</code></figcaption>
+      </figure><figure class="sw" style="background:#2E2721">
+        <figcaption><span class="swName">input-major</span><code>#2E2721</code></figcaption>
+      </figure><figure class="sw" style="background:#2A241E">
+        <figcaption><span class="swName">tip</span><code>#2A241E</code></figcaption>
+      </figure><figure class="sw" style="background:#332C25">
+        <figcaption><span class="swName">menu</span><code>#332C25</code></figcaption>
+      </figure></div>
+  </section>
+
+  <section class="group">
+    <h3>主色 / 交互<span class="id">accent</span></h3>
+    <div class="swatches"><figure class="sw" style="background:#B85430">
+        <figcaption><span class="swName">brand-primary</span><code>#B85430</code></figcaption>
+      </figure><figure class="sw" style="background:#AA4C2B">
+        <figcaption><span class="swName">button-primary-hover</span><code>#AA4C2B</code></figcaption>
+      </figure><figure class="sw" style="background:#E3C8B6">
+        <figcaption><span class="swName">button-primary-dimmed</span><code>#E3C8B6</code></figcaption>
+      </figure><figure class="sw" style="background:#3B6A89">
+        <figcaption><span class="swName">link</span><code>#3B6A89</code></figcaption>
+      </figure><figure class="sw" style="background:#56412B14">
+        <figcaption><span class="swName">interactive-bg-hover</span><code>#56412B14</code></figcaption>
+      </figure><figure class="sw" style="background:#B8543024">
+        <figcaption><span class="swName">interactive-bg-hover-accent</span><code>#B8543024</code></figcaption>
+      </figure><figure class="sw" style="background:#A9463614">
+        <figcaption><span class="swName">interactive-bg-hover-danger</span><code>#A9463614</code></figcaption>
+      </figure><figure class="sw" style="background:#F1E7D8">
+        <figcaption><span class="swName">interactive-bg-hover-solid</span><code>#F1E7D8</code></figcaption>
+      </figure></div>
+    <div class="swatches darkScope"><figure class="sw" style="background:#DF805B">
+        <figcaption><span class="swName">brand-primary</span><code>#DF805B</code></figcaption>
+      </figure><figure class="sw" style="background:#E8916D">
+        <figcaption><span class="swName">button-primary-hover</span><code>#E8916D</code></figcaption>
+      </figure><figure class="sw" style="background:#5A3A2C">
+        <figcaption><span class="swName">button-primary-dimmed</span><code>#5A3A2C</code></figcaption>
+      </figure><figure class="sw" style="background:#95BFD0">
+        <figcaption><span class="swName">link</span><code>#95BFD0</code></figcaption>
+      </figure><figure class="sw" style="background:#EBE1D214">
+        <figcaption><span class="swName">interactive-bg-hover</span><code>#EBE1D214</code></figcaption>
+      </figure><figure class="sw" style="background:#DF805B24">
+        <figcaption><span class="swName">interactive-bg-hover-accent</span><code>#DF805B24</code></figcaption>
+      </figure><figure class="sw" style="background:#E4827026">
+        <figcaption><span class="swName">interactive-bg-hover-danger</span><code>#E4827026</code></figcaption>
+      </figure><figure class="sw" style="background:#332C25">
+        <figcaption><span class="swName">interactive-bg-hover-solid</span><code>#332C25</code></figcaption>
+      </figure></div>
+  </section>
+
+  <section class="group">
+    <h3>文字<span class="id">text</span></h3>
+    <div class="swatches"><figure class="sw" style="background:#3A2E24">
+        <figcaption><span class="swName">label-primary</span><code>#3A2E24</code></figcaption>
+      </figure><figure class="sw" style="background:#2A2018">
+        <figcaption><span class="swName">label-primary-dimmed</span><code>#2A2018</code></figcaption>
+      </figure><figure class="sw" style="background:#776450">
+        <figcaption><span class="swName">label-secondary</span><code>#776450</code></figcaption>
+      </figure><figure class="sw" style="background:#8B7A6A">
+        <figcaption><span class="swName">label-tertiary</span><code>#8B7A6A</code></figcaption>
+      </figure><figure class="sw" style="background:#A08D77">
+        <figcaption><span class="swName">label-caption</span><code>#A08D77</code></figcaption>
+      </figure><figure class="sw" style="background:#C9BCA9">
+        <figcaption><span class="swName">label-dimmed</span><code>#C9BCA9</code></figcaption>
+      </figure><figure class="sw" style="background:#FFFAF2">
+        <figcaption><span class="swName">label-primary-foreground</span><code>#FFFAF2</code></figcaption>
+      </figure></div>
+    <div class="swatches darkScope"><figure class="sw" style="background:#E2D9CC">
+        <figcaption><span class="swName">label-primary</span><code>#E2D9CC</code></figcaption>
+      </figure><figure class="sw" style="background:#F0E7DA">
+        <figcaption><span class="swName">label-primary-dimmed</span><code>#F0E7DA</code></figcaption>
+      </figure><figure class="sw" style="background:#A39684">
+        <figcaption><span class="swName">label-secondary</span><code>#A39684</code></figcaption>
+      </figure><figure class="sw" style="background:#938573">
+        <figcaption><span class="swName">label-tertiary</span><code>#938573</code></figcaption>
+      </figure><figure class="sw" style="background:#8A7B6B">
+        <figcaption><span class="swName">label-caption</span><code>#8A7B6B</code></figcaption>
+      </figure><figure class="sw" style="background:#5A5049">
+        <figcaption><span class="swName">label-dimmed</span><code>#5A5049</code></figcaption>
+      </figure><figure class="sw" style="background:#26150E">
+        <figcaption><span class="swName">label-primary-foreground</span><code>#26150E</code></figcaption>
+      </figure></div>
+  </section>
+
+  <section class="group">
+    <h3>描边 / 滚动条<span class="id">borders</span></h3>
+    <div class="swatches"><figure class="sw" style="background:#56412B12">
+        <figcaption><span class="swName">border-l1</span><code>#56412B12</code></figcaption>
+      </figure><figure class="sw" style="background:#56412B26">
+        <figcaption><span class="swName">border-l2</span><code>#56412B26</code></figcaption>
+      </figure><figure class="sw" style="background:#56412B2E">
+        <figcaption><span class="swName">border-l3</span><code>#56412B2E</code></figcaption>
+      </figure><figure class="sw" style="background:#56412B3D">
+        <figcaption><span class="swName">border-l4</span><code>#56412B3D</code></figcaption>
+      </figure><figure class="sw" style="background:#DED2C0">
+        <figcaption><span class="swName">scrollbar-bg-l1</span><code>#DED2C0</code></figcaption>
+      </figure><figure class="sw" style="background:#C4B29B">
+        <figcaption><span class="swName">scrollbar-hover-l1</span><code>#C4B29B</code></figcaption>
+      </figure></div>
+    <div class="swatches darkScope"><figure class="sw" style="background:#EBE1D21A">
+        <figcaption><span class="swName">border-l1</span><code>#EBE1D21A</code></figcaption>
+      </figure><figure class="sw" style="background:#EBE1D22E">
+        <figcaption><span class="swName">border-l2</span><code>#EBE1D22E</code></figcaption>
+      </figure><figure class="sw" style="background:#EBE1D23D">
+        <figcaption><span class="swName">border-l3</span><code>#EBE1D23D</code></figcaption>
+      </figure><figure class="sw" style="background:#EBE1D24D">
+        <figcaption><span class="swName">border-l4</span><code>#EBE1D24D</code></figcaption>
+      </figure><figure class="sw" style="background:#4A4239">
+        <figcaption><span class="swName">scrollbar-bg-l1</span><code>#4A4239</code></figcaption>
+      </figure><figure class="sw" style="background:#5E5449">
+        <figcaption><span class="swName">scrollbar-hover-l1</span><code>#5E5449</code></figcaption>
+      </figure></div>
+  </section>
+
+  <section class="group">
+    <h3>语义状态<span class="id">states</span></h3>
+    <div class="swatches"><figure class="sw" style="background:#4A7350">
+        <figcaption><span class="swName">state-success-primary</span><code>#4A7350</code></figcaption>
+      </figure><figure class="sw" style="background:#96651C">
+        <figcaption><span class="swName">state-warn-primary</span><code>#96651C</code></figcaption>
+      </figure><figure class="sw" style="background:#A94636">
+        <figcaption><span class="swName">state-error-primary</span><code>#A94636</code></figcaption>
+      </figure><figure class="sw" style="background:#B85430">
+        <figcaption><span class="swName">state-business-primary</span><code>#B85430</code></figcaption>
+      </figure><figure class="sw" style="background:#DEE9DE">
+        <figcaption><span class="swName">state-success-tertiary</span><code>#DEE9DE</code></figcaption>
+      </figure><figure class="sw" style="background:#F6E8CF">
+        <figcaption><span class="swName">state-warn-tertiary</span><code>#F6E8CF</code></figcaption>
+      </figure><figure class="sw" style="background:#F4E3D8">
+        <figcaption><span class="swName">state-business-tertiary</span><code>#F4E3D8</code></figcaption>
+      </figure></div>
+    <div class="swatches darkScope"><figure class="sw" style="background:#A6C896">
+        <figcaption><span class="swName">state-success-primary</span><code>#A6C896</code></figcaption>
+      </figure><figure class="sw" style="background:#E3BC72">
+        <figcaption><span class="swName">state-warn-primary</span><code>#E3BC72</code></figcaption>
+      </figure><figure class="sw" style="background:#E48270">
+        <figcaption><span class="swName">state-error-primary</span><code>#E48270</code></figcaption>
+      </figure><figure class="sw" style="background:#DF805B">
+        <figcaption><span class="swName">state-business-primary</span><code>#DF805B</code></figcaption>
+      </figure><figure class="sw" style="background:#2C3A2A">
+        <figcaption><span class="swName">state-success-tertiary</span><code>#2C3A2A</code></figcaption>
+      </figure><figure class="sw" style="background:#3C3222">
+        <figcaption><span class="swName">state-warn-tertiary</span><code>#3C3222</code></figcaption>
+      </figure><figure class="sw" style="background:#3A2A22">
+        <figcaption><span class="swName">state-business-tertiary</span><code>#3A2A22</code></figcaption>
+      </figure></div>
+  </section>
+
+  <section class="group">
+    <h3>Markdown / 代码 / 气泡<span class="id">markdown</span></h3>
+    <div class="swatches"><figure class="sw" style="background:#F8F1E6">
+        <figcaption><span class="swName">markdown-code-block</span><code>#F8F1E6</code></figcaption>
+      </figure><figure class="sw" style="background:#F3EBDD">
+        <figcaption><span class="swName">markdown-code-block-banner</span><code>#F3EBDD</code></figcaption>
+      </figure><figure class="sw" style="background:#F8F1E6">
+        <figcaption><span class="swName">markdown-inline-code</span><code>#F8F1E6</code></figcaption>
+      </figure><figure class="sw" style="background:#F1E7D8">
+        <figcaption><span class="swName">markdown-tag</span><code>#F1E7D8</code></figcaption>
+      </figure><figure class="sw" style="background:#F1E7D8">
+        <figcaption><span class="swName">markdown-citation</span><code>#F1E7D8</code></figcaption>
+      </figure><figure class="sw" style="background:#F6E7D8">
+        <figcaption><span class="swName">bubble</span><code>#F6E7D8</code></figcaption>
+      </figure><figure class="sw" style="background:#EFDCC4">
+        <figcaption><span class="swName">bubble-highlight</span><code>#EFDCC4</code></figcaption>
+      </figure><figure class="sw" style="background:#2A2018">
+        <figcaption><span class="swName">toast-bg</span><code>#2A2018</code></figcaption>
+      </figure><figure class="sw" style="background:#33281F">
+        <figcaption><span class="swName">tooltip-bg</span><code>#33281F</code></figcaption>
+      </figure></div>
+    <div class="swatches darkScope"><figure class="sw" style="background:#201B17">
+        <figcaption><span class="swName">markdown-code-block</span><code>#201B17</code></figcaption>
+      </figure><figure class="sw" style="background:#2A241E">
+        <figcaption><span class="swName">markdown-code-block-banner</span><code>#2A241E</code></figcaption>
+      </figure><figure class="sw" style="background:#201B17">
+        <figcaption><span class="swName">markdown-inline-code</span><code>#201B17</code></figcaption>
+      </figure><figure class="sw" style="background:#2A241E">
+        <figcaption><span class="swName">markdown-tag</span><code>#2A241E</code></figcaption>
+      </figure><figure class="sw" style="background:#2A241E">
+        <figcaption><span class="swName">markdown-citation</span><code>#2A241E</code></figcaption>
+      </figure><figure class="sw" style="background:#332B24">
+        <figcaption><span class="swName">bubble</span><code>#332B24</code></figcaption>
+      </figure><figure class="sw" style="background:#3D342B">
+        <figcaption><span class="swName">bubble-highlight</span><code>#3D342B</code></figcaption>
+      </figure><figure class="sw" style="background:#332C25">
+        <figcaption><span class="swName">toast-bg</span><code>#332C25</code></figcaption>
+      </figure><figure class="sw" style="background:#332C25">
+        <figcaption><span class="swName">tooltip-bg</span><code>#332C25</code></figcaption>
+      </figure></div>
+  </section>
+    <section class="group">
+      <h3>代码高亮取值<span class="id">--shiki-*</span></h3>
+      <div class="shikiRow"><span style="color:#9B452C">keyword<code>#9B452C</code></span><span class="darkScope" style="color:#E39371;background:#101010">keyword<code>#E39371</code></span><span style="color:#4A7350">string<code>#4A7350</code></span><span class="darkScope" style="color:#A6C896;background:#101010">string<code>#A6C896</code></span><span style="color:#7B6954">comment<code>#7B6954</code></span><span class="darkScope" style="color:#938573;background:#101010">comment<code>#938573</code></span><span style="color:#3B6A89">function<code>#3B6A89</code></span><span class="darkScope" style="color:#95BFD0;background:#101010">function<code>#95BFD0</code></span><span style="color:#785B91">constant<code>#785B91</code></span><span class="darkScope" style="color:#BAA0D4;background:#101010">constant<code>#BAA0D4</code></span><span style="color:#8F5F1A">parameter<code>#8F5F1A</code></span><span class="darkScope" style="color:#E3BC72;background:#101010">parameter<code>#E3BC72</code></span><span style="color:#8B7A6A">punctuation<code>#8B7A6A</code></span><span class="darkScope" style="color:#A39684;background:#101010">punctuation<code>#A39684</code></span><span style="color:#3B6A89">link<code>#3B6A89</code></span><span class="darkScope" style="color:#95BFD0;background:#101010">link<code>#95BFD0</code></span></div>
+    </section>
+  </div>
+</div>
+</body>
+</html>

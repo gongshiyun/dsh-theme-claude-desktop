@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Claude Desktop 主题 · DSH 界面示意图（light）</title>
+<style>
+  .app {
+  --dsw-font-family: "Anthropic Sans Text", "Anthropic Sans", "Styrene B", "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+  --ds-font-family-code: "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace;
+  --dsw-font-markdown-h1: 700 calc(21px + var(--dsh-content-font-delta)) / calc(30px + var(--dsh-content-font-delta)) "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h1-font-family: "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h2: 700 calc(19px + var(--dsh-content-font-delta)) / calc(28px + var(--dsh-content-font-delta)) "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h2-font-family: "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h3: 700 calc(18px + var(--dsh-content-font-delta)) / calc(26px + var(--dsh-content-font-delta)) "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --dsw-font-markdown-h3-font-family: "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif;
+  --shiki-foreground: #3A2E24;
+  --shiki-background: #F8F1E6;
+  --shiki-token-constant: #785B91;
+  --shiki-token-string: #4A7350;
+  --shiki-token-comment: #7B6954;
+  --shiki-token-keyword: #9B452C;
+  --shiki-token-parameter: #8F5F1A;
+  --shiki-token-function: #3B6A89;
+  --shiki-token-string-expression: #4A7350;
+  --shiki-token-punctuation: #8B7A6A;
+  --shiki-token-link: #3B6A89;
+  --dsw-alias-bg-base: #FFFAF2;
+  --dsw-alias-bg-layer-1: #FFFDF9;
+  --dsw-alias-bg-layer-2: #FFFDF9;
+  --dsw-alias-bg-layer-3: #FFFDF9;
+  --dsw-alias-bg-overlay: #F1E7D8;
+  --dsw-alias-bg-module-platform: #F1E7D8;
+  --dsw-alias-bg-multi-select: #F3EBDD;
+  --dsw-alias-bg-skeleton: #56412B14;
+  --dsw-alias-bg-mask-1: #2A20183D;
+  --dsw-alias-bg-mask-2: #2A20181F;
+  --dsw-alias-bg-mask-3: #2A20187A;
+  --dsw-alias-bg-mask-photo: #2A2018E0;
+  --dsw-alias-bg-mask-drop: #FFFAF2B3;
+  --dsw-alias-border-l1: #56412B12;
+  --dsw-alias-border-l2: #56412B26;
+  --dsw-alias-border-l2-darkmode-thin: #56412B26;
+  --dsw-alias-border-l3: #56412B2E;
+  --dsw-alias-border-l4: #56412B3D;
+  --dsw-alias-border-inverted: #00000000;
+  --dsw-alias-border-inverted2: #00000000;
+  --dsw-alias-brand-primary: #B85430;
+  --dsw-alias-brand-primary-invert: #3A2E24;
+  --dsw-alias-brand-primary-new-colorprimary-new-color: #B85430;
+  --dsw-alias-brand-text: #2A2018;
+  --dsw-alias-button-primary-fill: #B85430;
+  --dsw-alias-button-primary-hover: #AA4C2B;
+  --dsw-alias-button-primary-dimmed: #E3C8B6;
+  --dsw-alias-button-contrast-fill: #3A2E24;
+  --dsw-alias-button-elevated-fill: #FFFDF9;
+  --dsw-alias-button-floating-fill: #FFFDF9;
+  --dsw-alias-button-floating-hover: #F1E7D8;
+  --dsw-alias-button-ghost-active-fill: #F1E7D8;
+  --dsw-alias-button-ghost-active-hover: #EBDFCC;
+  --dsw-alias-button-ghost-active-border: #C4B29B;
+  --dsw-alias-button-info-fill: #B85430;
+  --dsw-alias-button-info-hover: #AA4C2B;
+  --dsw-alias-button-tool-bar-fill: #6B5A4780;
+  --dsw-alias-button-tool-bar-hover: #6B5A4799;
+  --dsw-alias-button-tool-bar-fill-invisible: #3A2E245C;
+  --dsw-alias-interactive-bg-hover: #56412B14;
+  --dsw-alias-interactive-bg-hover-solid: #F1E7D8;
+  --dsw-alias-interactive-bg-active: #56412B1F;
+  --dsw-alias-interactive-bg-hover-accent: #B8543024;
+  --dsw-alias-interactive-bg-hover-danger: #A9463614;
+  --dsw-alias-label-primary: #3A2E24;
+  --dsw-alias-label-primary-dimmed: #2A2018;
+  --dsw-alias-label-primary-foreground: #FFFAF2;
+  --dsw-alias-label-primary-inverted: #FFFAF2;
+  --dsw-alias-label-primary-bluish: #8C4526;
+  --dsw-alias-label-secondary: #776450;
+  --dsw-alias-label-tertiary: #8B7A6A;
+  --dsw-alias-label-caption: #A08D77;
+  --dsw-alias-label-dimmed: #C9BCA9;
+  --dsw-alias-link: #3B6A89;
+  --dsw-alias-markdown-citation: #F1E7D8;
+  --dsw-alias-markdown-code-block: #F8F1E6;
+  --dsw-alias-markdown-code-block-banner: #F3EBDD;
+  --dsw-alias-markdown-code-segment-selected: #FFFDF9;
+  --dsw-alias-markdown-code-segment-unselected: #F1E7D8;
+  --dsw-alias-markdown-inline-code: #F8F1E6;
+  --dsw-alias-markdown-placeholder: #F3EBDD;
+  --dsw-alias-markdown-tag: #F1E7D8;
+  --dsw-alias-scrollbar-bg-l1: #DED2C0;
+  --dsw-alias-scrollbar-bg-l2: #D6C8B4;
+  --dsw-alias-scrollbar-hover-l1: #C4B29B;
+  --dsw-alias-scrollbar-hover-l2: #B8A48C;
+  --dsw-alias-state-error-primary: #A94636;
+  --dsw-alias-state-error-secondary: #C4675A;
+  --dsw-alias-state-success-primary: #4A7350;
+  --dsw-alias-state-success-secondary: #6A9170;
+  --dsw-alias-state-success-tertiary: #DEE9DE;
+  --dsw-alias-state-warn-primary: #96651C;
+  --dsw-alias-state-warn-secondary: #B98A3C;
+  --dsw-alias-state-warn-tertiary: #F6E8CF;
+  --dsw-alias-state-warn-label: #7A5314;
+  --dsw-alias-state-business-primary: #B85430;
+  --dsw-alias-state-business-tertiary: #F4E3D8;
+  --dsw-alias-toast-bg: #2A2018;
+  --dsw-alias-tooltip-bg: #33281F;
+  --dsw-specific-bubble: #F6E7D8;
+  --dsw-specific-bubble-highlight: #EFDCC4;
+  --dsw-specific-input-major: #FFFDF9;
+  --dsw-specific-login-input: #F8F1E6;
+  --dsw-specific-menu: #FFFDF9;
+  --dsw-specific-selector: #F1E7D8;
+  --dsw-specific-sidebar-fill: #F3EBDD;
+  --dsw-specific-sidebar-nav-item-active: #E9DEC9;
+  --dsw-specific-sidebar-nav-item-active-accent: #E1D2B8;
+  --dsw-specific-sidebar-nav-item-hover: #EDE3D2;
+  --dsw-specific-tip: #F6EEE1;
+  --dsw-static-neutral-50: #FBF7F0;
+  --dsw-static-neutral-100: #F4EDE2;
+  --dsw-static-neutral-200: #E6DCCB;
+  --dsw-static-neutral-700: #3A322A;
+  --dsw-static-neutral-800: #332C25;
+  --dsw-static-neutral-850: #2B251F;
+  --dsw-static-neutral-bluish-00: #FFFDF9;
+  --dsw-static-neutral-bluish-300: #D8CDBB;
+  --dsw-static-neutral-bluish-400: #A39684;
+  --dsw-static-deepseek-200: #E8C4B0;
+  --dsw-static-deepseek-450: #D97757;
+  --dsw-static-deepseek-500: #C4623C;
+  --dsw-static-blue-450: #5E8AA6;
+  --dsw-static-blue-500: #3B6A89;
+  --dsw-static-green-500: #5E8A66;
+  --dsw-static-red-600: #B04B3A;
+  --dsw-static-amber-400: #D9A24A;
+  --dsw-static-amber-500: #C08A2E;
+  --dsw-linear-gradient-think: linear-gradient(180deg, #FFFAF2 20.19%, #FFFAF200 100%);
+  --dsw-linear-think-select: linear-gradient(180deg, #F6EEE1 20.19%, #F6EEE100 100%);
+  --dsw-shadow-lv1: 0 2px 4px 0 #3A2E240D;
+  --dsw-shadow-lv1-blur: 0 4px 12px 0 #3A2E2405;
+  --dsw-shadow-lv2: 0 4px 12px 0 #3A2E2405, 0 2px 8px 0 #3A2E240A;
+  --dsw-shadow-lv3: 0 0 1px 0 #3A2E2433, 0 0 4px 0 #3A2E2405, 0 12px 32px 0 #3A2E2414;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #e6e1d8; padding: 22px;
+    font: 14px/22px "Anthropic Sans Text", "Anthropic Sans", "Styrene B", "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif; }
+  .stage { width: 1180px; }
+  .app { width: 1180px; height: 744px; display: flex; flex-direction: column;
+    background: var(--dsw-alias-bg-base); color: var(--dsw-alias-label-primary);
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 18px 48px #3a2e2429, 0 0 0 1px #3a2e241f; }
+  .spacer { flex: 1; }
+  svg { display: block; }
+  .ellip { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* 顶部菜单行 */
+  .titlebar { flex: none; height: 44px; display: flex; align-items: center; gap: 18px;
+    padding: 0 16px; background: var(--dsw-specific-sidebar-fill);
+    border-bottom: .5px solid var(--dsw-alias-border-l1);
+    color: var(--dsw-alias-label-secondary); font-size: 13px; }
+  .titlebar .g { color: var(--dsw-alias-label-tertiary); }
+  .wctl { color: var(--dsw-alias-label-tertiary); font-size: 12px; }
+
+  .body { flex: 1; display: flex; min-height: 0; }
+
+  /* 侧栏 */
+  .side { width: 236px; flex: none; display: flex; flex-direction: column; gap: 6px;
+    padding: 10px 10px 8px; background: var(--dsw-specific-sidebar-fill);
+    border-right: .5px solid var(--dsw-alias-border-l1); }
+  .brand { display: flex; align-items: center; gap: 7px; padding: 2px 6px 10px; font-weight: 600; }
+  .brand .mark { width: 18px; height: 18px; border-radius: 5px; background: var(--dsw-alias-brand-primary); }
+  .brand .name { letter-spacing: -.01em; }
+  .brand .badge { font: 9px/15px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; letter-spacing: .06em; padding: 0 4px; border-radius: 3px;
+    background: var(--dsw-alias-label-primary); color: var(--dsw-specific-sidebar-fill); }
+  .newchat { height: 34px; display: flex; align-items: center; justify-content: center; gap: 6px;
+    border-radius: 999px; background: var(--dsw-alias-bg-layer-1);
+    border: .5px solid var(--dsw-alias-border-l2); font-size: 13px; }
+  .navRow { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border-radius: 8px;
+    margin-top: 8px; font-size: 13px; }
+  .sectionLabel { display: flex; align-items: center; gap: 8px; padding: 12px 8px 4px;
+    color: var(--dsw-alias-label-tertiary); font-size: 12px; }
+  .sectionLabel svg { color: var(--dsw-alias-label-tertiary); }
+  .ws, .session { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 8px; font-size: 13px; }
+  .ws svg { color: var(--dsw-alias-label-tertiary); }
+  .session { color: var(--dsw-alias-label-secondary); }
+  .session .dot { width: 9px; height: 9px; flex: none; border-radius: 50%;
+    border: 1.5px solid var(--dsw-alias-label-tertiary); }
+  .session .doc { width: 9px; height: 11px; flex: none; border-radius: 2px;
+    border: 1.5px solid var(--dsw-alias-label-tertiary); }
+  .session .t { margin-left: auto; color: var(--dsw-alias-label-caption); font-size: 11px; }
+  .session.active { background: var(--dsw-specific-sidebar-nav-item-active);
+    color: var(--dsw-alias-label-primary); }
+  .sideFoot { margin-top: auto; display: flex; align-items: center; gap: 8px; padding: 8px 6px 2px;
+    color: var(--dsw-alias-label-secondary); font-size: 13px; }
+  .avatar { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--dsw-alias-brand-primary); color: var(--dsw-alias-label-primary-foreground);
+    font-size: 11px; }
+
+  /* 主区 */
+  .main { flex: 1; min-width: 0; display: flex; flex-direction: column;
+    background: var(--dsw-alias-bg-base); }
+  .head { flex: none; height: 52px; display: flex; align-items: center; gap: 14px; padding: 0 18px; }
+  .head .title { font-weight: 600; }
+  .chip { display: inline-flex; align-items: center; gap: 5px;
+    color: var(--dsw-alias-label-tertiary); font-size: 12px; }
+  .tabs { flex: none; height: 38px; display: flex; gap: 26px; padding: 0 18px;
+    border-bottom: .5px solid var(--dsw-alias-border-l1); }
+  .tab { display: flex; align-items: center; position: relative; font-size: 13px;
+    color: var(--dsw-alias-label-secondary); }
+  .tab.on { color: var(--dsw-alias-brand-primary); }
+  .tab.on::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    border-radius: 2px; background: var(--dsw-alias-brand-primary); }
+
+  .scroll { flex: 1; min-height: 0; overflow: hidden; padding: 14px 30px 0;
+    display: flex; flex-direction: column; gap: 11px; }
+  .user { align-self: flex-end; max-width: 64%; padding: 8px 14px; border-radius: 16px;
+    background: var(--dsw-specific-bubble); }
+  .toolrow { display: flex; align-items: center; gap: 8px;
+    color: var(--dsw-alias-label-tertiary); font-size: 13px; }
+  .md { display: flex; flex-direction: column; gap: 9px; }
+  .md h3 { margin: 2px 0 0; font: 700 17px/26px "Anthropic Serif Text", "Anthropic Serif", "Copernicus", "Tiempos Text", Georgia, "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", "Times New Roman", serif; }
+  .md p { margin: 0; }
+  code.inline { font: 12px/19px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; padding: 1px 5px; border-radius: 5px;
+    background: var(--dsw-alias-markdown-inline-code); }
+  pre { margin: 0; padding: 0; border-radius: 12px; overflow: hidden;
+    background: var(--dsw-alias-markdown-code-block);
+    border: .5px solid var(--dsw-alias-border-l2); }
+  pre .banner { display: flex; justify-content: space-between; padding: 8px 14px;
+    font: 11px/16px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; color: var(--dsw-alias-label-tertiary);
+    background: var(--dsw-alias-markdown-code-block-banner);
+    border-bottom: .5px solid var(--dsw-alias-border-l1); }
+  pre code { display: block; padding: 11px 14px; font: 12px/19px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace;
+    color: var(--shiki-foreground); white-space: pre; }
+  pre i { font-style: normal; }
+  .k { color: var(--shiki-token-keyword); }
+  .s { color: var(--shiki-token-string); }
+  .c { color: var(--shiki-token-comment); }
+  .f { color: var(--shiki-token-function); }
+
+  .filecard { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 12px;
+    background: var(--dsw-static-neutral-50); border: .5px solid var(--dsw-alias-border-l2); font-size: 13px; }
+  /* DSH 的文件卡片在深色下由 body[data-ds-dark-theme] 切到 neutral-850，这里照搬同一套语义 */
+  .app[data-scheme="dark"] .filecard { background: var(--dsw-static-neutral-850); }
+  .filecard .ico { width: 26px; height: 26px; flex: none; border-radius: 7px; display: grid; place-items: center;
+    background: var(--dsw-alias-state-success-tertiary); color: var(--dsw-alias-state-success-primary);
+    font: 10px/1 "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; }
+  .filecard .add { color: var(--dsw-alias-state-success-primary); font: 12px/18px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; }
+  .filecard .del { color: var(--dsw-alias-state-error-primary); font: 12px/18px "Anthropic Mono", "AnthropicMono", "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, "Noto Sans Mono CJK SC", "Microsoft YaHei UI", monospace; }
+  .filecard .muted { color: var(--dsw-alias-label-caption); font-size: 12px; }
+
+  .states { display: flex; gap: 8px; }
+  .st { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 999px;
+    font-size: 11px; }
+  .st.ok { background: var(--dsw-alias-state-success-tertiary); color: var(--dsw-alias-state-success-primary); }
+  .st.warn { background: var(--dsw-alias-state-warn-tertiary); color: var(--dsw-alias-state-warn-label); }
+  .st.err { background: var(--dsw-alias-interactive-bg-hover-danger); color: var(--dsw-alias-state-error-primary); }
+  .st.biz { background: var(--dsw-alias-state-business-tertiary); color: var(--dsw-alias-state-business-primary); }
+
+  /* 底部输入区 */
+  .dock { flex: none; padding: 10px 18px 0; display: flex; flex-direction: column; gap: 8px; }
+  .tip { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 10px;
+    background: var(--dsw-specific-tip); border: .5px solid var(--dsw-alias-border-l1);
+    color: var(--dsw-alias-label-secondary); font-size: 12px; }
+  .composer { display: flex; flex-direction: column; gap: 12px; padding: 12px 14px 10px;
+    border-radius: 18px; background: var(--dsw-specific-input-major);
+    border: .5px solid var(--dsw-alias-border-l2); }
+  .composer .ph { color: var(--dsw-alias-label-dimmed); }
+  .crow { display: flex; align-items: center; gap: 10px; }
+  .plus { width: 26px; height: 26px; flex: none; border-radius: 50%; display: grid; place-items: center;
+    background: var(--dsw-specific-selector); }
+  .perm { display: inline-flex; align-items: center; gap: 5px;
+    color: var(--dsw-alias-label-secondary); font-size: 13px; }
+  .model { margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+    color: var(--dsw-alias-label-secondary); font-size: 13px; }
+  .caret { color: var(--dsw-alias-label-tertiary); font-size: 11px; }
+  .send { width: 30px; height: 30px; flex: none; border-radius: 50%; display: grid; place-items: center;
+    background: var(--dsw-alias-button-info-fill); color: var(--dsw-alias-label-primary-foreground); }
+  .status { display: flex; justify-content: center; gap: 20px; padding: 6px 0 10px;
+    color: var(--dsw-alias-label-tertiary); font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="app" data-scheme="light">
+    <!-- 顶部菜单行：整行使用侧栏填充色（DSH 的 title-row 背景） -->
+    <div class="titlebar">
+      <span class="g"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><span>应用</span><span>编辑</span>
+      <span class="spacer"></span>
+      <span class="wctl">–</span><span class="wctl">□</span><span class="wctl">✕</span>
+    </div>
+
+    <div class="body">
+      <!-- 侧栏 -->
+      <aside class="side">
+        <div class="brand">
+          <span class="mark"></span><span class="name">deepseek</span><span class="badge">HARNESS</span>
+        </div>
+        <div class="newchat"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span>新会话</span></div>
+        <div class="navRow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v6M15 3v6M6 9h12v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6z"/><path d="M12 18v3"/></svg><span>插件</span></div>
+
+        <div class="sectionLabel"><span>工作区</span><span class="spacer"></span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m20 20-3.5-3.5"/></svg><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="ws"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>示例工作区</span></div>
+        <div class="session active"><span class="dot"></span><span class="ellip">主题效果预览（示例）</span><span class="t">刚刚</span></div>
+        <div class="session"><span class="doc"></span><span class="ellip">设计走查：暖砂与赤陶</span><span class="t">12 分钟</span></div>
+        <div class="session"><span class="doc"></span><span class="ellip">字体排印对齐说明</span><span class="t">1 小时</span></div>
+
+        <div class="ws" style="margin-top:4px"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>另一个工作区</span></div>
+        <div class="session"><span class="doc"></span><span class="ellip">浅色 / 深色取值核对</span><span class="t">昨天</span></div>
+
+        <div class="sideFoot"><span class="avatar">示</span><span>示例用户</span></div>
+      </aside>
+
+      <!-- 主区 -->
+      <main class="main">
+        <div class="head">
+          <span class="title">主题效果预览（示例）</span>
+          <span class="chip"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg><span>标准模式</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span>2 个后台任务</span></span>
+          <span class="spacer"></span>
+          <span class="chip"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg></span><span class="chip">···</span>
+        </div>
+
+        <div class="tabs">
+          <span class="tab on">对话</span>
+          <span class="tab">轨迹</span>
+        </div>
+
+        <div class="scroll">
+          <div class="user">把主题的浅色变体接到暖砂画布上，正文用 <b>Anthropic Sans</b>，标题换衬线。</div>
+
+          <div class="toolrow"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 3 3-3 3M12 14h6"/></svg><span>执行了命令，已读取文件，已搜索代码等</span></div>
+
+          <div class="md">
+            <h3>主题已应用：暖砂画布 + 赤陶主色</h3>
+            <p>浅色取值为画布 <code class="inline">#FFFAF2</code>、侧栏 <code class="inline">#F3EBDD</code>、
+              主色 <code class="inline">#B85430</code>；深色切换后同样是这一套语义 token，只是换了一组值。</p>
+
+            <pre><span class="banner"><span>theme-tokens.ts</span><span>副本</span></span><code><i class="k">const</i> tokens = {
+  <i class="s">'--dsw-alias-bg-base'</i>: { light: <i class="s">'#FFFAF2'</i>, dark: <i class="s">'#26221E'</i> },
+  <i class="s">'--dsw-alias-brand-primary'</i>: { light: <i class="s">'#B85430'</i>, dark: <i class="s">'#DF805B'</i> },
+};
+<i class="c">// 明暗两套同时注册，由 DSH 的外观偏好决定生效哪一套</i>
+ctx.theme.<i class="f">overrideTokens</i>(<i class="s">'claude-desktop'</i>, tokens);</code></pre>
+
+            <div class="filecard">
+              <span class="ico">ts</span>
+              <span>已编辑 <b>theme-tokens.ts</b></span>
+              <span class="add">+38</span><span class="del">−6</span>
+              <span class="spacer"></span>
+              <span class="muted">刚刚</span>
+            </div>
+
+            <div class="states">
+              <span class="st ok"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4 10-11"/></svg>成功</span>
+              <span class="st warn"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 3 20h18z"/><path d="M12 10v5M12 18h.01"/></svg>警告</span>
+              <span class="st err"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v5M12 16h.01"/></svg>错误</span>
+              <span class="st biz"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 11v5M12 8h.01"/></svg>信息</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dock">
+          <div class="tip"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg><span>进行中的目标：把主题的明暗两套取值接入 DSH token 层</span></div>
+          <div class="composer">
+            <div class="ph">发消息或创建任务，/ 调用指令，@ 文件或对话</div>
+            <div class="crow">
+              <span class="plus"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+              <span class="perm"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4 3 7 7 8 4-1 7-4 7-8V6z"/></svg><span>完全权限</span><span class="caret">⌄</span></span>
+              <span class="model">DeepSeek V4.1 Flash Max<span class="caret">⌄</span></span>
+              <span class="send"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </div>
+          <div class="status">
+            <span>1 轮 12 步 · 96 tok/s</span>
+            <span>3.2M tok · 缓存命中 98%</span>
+            <span>上下文 21%</span>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+</body>
+</html>
